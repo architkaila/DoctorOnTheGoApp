@@ -1,0 +1,99 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="software.doctoronthego.fragments.PatientBookAppointment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/fname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:hint="@string/signup_hint_1"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                />
+
+            <EditText
+                android:id="@+id/lname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:hint="@string/signup_hint_2"
+                android:inputType="textPersonName"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/signup_hint_3"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/datepicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:hint="Select Appointment Date"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/timepicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:hint="Select Appointment Time"
+            android:padding="10dp"/>
+
+
+        <!--<ListView-->
+        <!--android:id="@+id/doclist"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="300dp">-->
+
+        <!--</ListView>-->
+
+        <Spinner
+            android:id="@+id/selectspeciality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+        <Spinner
+            android:id="@+id/selectdoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:background="@color/colorButton"/>
+
+    </LinearLayout>
+
+</ScrollView>

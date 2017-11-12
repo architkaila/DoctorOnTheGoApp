@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Doctor OnTheGo</string>
+
+    <string name="splash_img_desc">Official Logo</string>
+
+    <string name="signup">Create Account</string>
+    <string name="signin">Log In</string>
+    <string name="signup_patient">Create Your Patient Account</string>
+    <string name="signin_patient">Log Into Your Account</string>
+    <string name="signup_in_desc">Your patient account is your portal to all things: your profile,appointments and more!</string>
+    <string name="signup_hint_1">First Name</string>
+    <string name="signup_hint_2">Last Name</string>
+    <string name="signup_hint_3">Email Address</string>
+    <string name="signup_hint_4">Password</string>
+    <string name="signup_hint_5">Confirm Password</string>
+
+    <string name="signup_button_1">SIGN UP</string>
+    <string name="signin_button_1">SIGN IN</string>
+    <string name="signin_button_2">Forgot your password?</string>
+
+    <string name="client_choose_button_1">Patient</string>
+    <string name="client_choose_button_2">Doctor</string>
+    <string name="client_choose_button_3">Admin</string>
+
+    <string name="client_choose_img_1">Doctor treating patient.</string>
+    <string name="client_choose_img_2">Doctor</string>
+
+    <string name="signup_in_desc_doctor">Your doctor account is your portal to all things: your profile, patients, appointments and more!</string>
+    <string name="signup_doctor">Create Your doctor Account</string>
+    <string name="signin_admin">Administrator Login</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="datepicker_button">Date</string>
+    <string name="timepicker_button">Time</string>
+
+    <string name="profile">Profile</string>
+    <string name="patient_view_appointment">View Appointments</string>
+    <string name="patient_book_appointment">Book Appointment</string>
+    <string name="patient_profile_tv1">First Name:</string>
+    <string name="patient_profile_tv2">Last Name:</string>
+    <string name="patient_profile_tv3">Email Address:</string>
+</resources>

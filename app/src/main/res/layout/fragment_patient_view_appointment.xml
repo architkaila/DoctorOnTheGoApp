@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="software.doctoronthego.fragments.PatientViewAppointment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_margin="10dp"
+        android:src="@drawable/create_appointment"/>
+
+    <TableLayout
+        android:id="@+id/tabl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow android:background="@color/colorPrimary">
+
+            <TextView android:textColor="#ffff" android:width="650px" android:text="Patient Name" android:textSize="20sp" android:padding="5dp" android:gravity="center"/>
+
+            <TextView android:textColor="#ffff" android:width="390px" android:text="Apt Date" android:textSize="20sp" android:padding="5dp" android:gravity="center"/>
+
+            <TextView android:textColor="#ffff" android:width="350px" android:text="Apt Time" android:textSize="20sp" android:padding="5dp" android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+
+    <ListView
+        android:id="@+id/patient_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+    <!--<TextView-->
+    <!--android:id="@+id/curr_appt_tv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
+
+
+</LinearLayout>
