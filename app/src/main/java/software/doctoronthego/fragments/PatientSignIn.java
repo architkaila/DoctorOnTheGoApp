@@ -1,6 +1,5 @@
 package software.doctoronthego.fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import software.doctoronthego.PatientActivity;
 import software.doctoronthego.PatientDetailsActivity;
 import software.doctoronthego.R;
-import software.doctoronthego.SplashActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +18,7 @@ import software.doctoronthego.SplashActivity;
 public class PatientSignIn extends Fragment {
 
     Button signin;
+
 
     public PatientSignIn() {
         // Required empty public constructor

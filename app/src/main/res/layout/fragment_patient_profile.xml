@@ -1,95 +1,166 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="software.doctoronthego.fragments.PatientProfile">
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_alignParentStart="true"
+        android:id="@+id/im"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/unnamed"
-        android:id="@+id/im"
-        android:layout_margin="20dp"/>
+        android:layout_margin="16dp"
+        android:src="@drawable/unnamed" />
 
     <View
         android:id="@+id/v"
-        android:layout_below="@id/im"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorPrimary" />
 
-    <TextView
-        android:textColor="@color/colorText"
-        android:layout_marginTop="30dp"
-        android:id="@+id/fname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@id/v"
-        android:layout_marginStart="10dp"
-        android:text="@string/patient_profile_tv1"
-        android:textSize="25sp" />
-
-    <TextView
-        android:textColor="@color/colorText"
-        android:layout_marginTop="30dp"
-        android:id="@+id/fname1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="35dp"
-        android:layout_toEndOf="@id/fname"
-        android:textSize="25sp"
-        android:layout_below="@id/v"/>
-
-    <TextView
-        android:textColor="@color/colorText"
-        android:id="@+id/lname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fname"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="10dp"
-        android:text="@string/patient_profile_tv2"
-        android:textSize="25sp"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:textColor="@color/colorText"
-        android:id="@+id/lname1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/fname1"
-        android:layout_below="@id/fname1"
-        android:layout_marginBottom="5dp"
-        android:layout_toEndOf="@id/lname"
-        android:textSize="25sp"
-        android:layout_marginTop="10sp"/>
-
-    <TextView
-        android:textColor="@color/colorText"
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lname"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="10dp"
-        android:text= "@string/patient_profile_tv3"
-        android:layout_marginTop="10dp"
-        android:textSize="25sp" />
-
-    <TextView
-        android:textColor="@color/colorText"
-        android:id="@+id/email1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/lname1"
-        android:layout_below="@id/lname1"
-        android:layout_marginBottom="5dp"
-        android:layout_toEndOf="@id/email"
-        android:textSize="25sp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/fname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/patient_profile_tv1"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/fname1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="hello world"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/patient_profile_tv2"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/lname1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="hello world"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/patient_profile_tv3"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/email1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="hello world"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/patient_profile_tv4"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/age1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="hello world"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/patient_profile_tv5"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/address1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="hello world"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</LinearLayout>
