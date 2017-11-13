@@ -42,4 +42,8 @@
     <string name="patient_profile_tv3">Email Address:</string>
     <string name="patient_profile_tv4">Age:</string>
     <string name="patient_profile_tv5">Address:</string>
+
+    <string name="a" formatted="false">Firebase User: %s</string>
+    <string name="b" formatted="false">Email User: %s %b</string>
+
 </resources>
