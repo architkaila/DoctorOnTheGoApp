@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +18,9 @@
         </activity>
         <activity android:name=".PatientActivity" />
         <activity android:name=".PatientDetailsActivity" />
-        <activity android:name=".PatientProfileUpdate"></activity>
+        <activity android:name=".PatientProfileUpdate" />
+        <activity android:name=".DoctorLogin" />
+        <activity android:name=".DoctorActivity"></activity>
     </application>
 
 </manifest>

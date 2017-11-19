@@ -25,10 +25,10 @@
     <string name="client_choose_img_1">Doctor treating patient.</string>
     <string name="client_choose_img_2">Doctor</string>
 
-    <string name="signup_in_desc_doctor">Your doctor account is your portal to all things: your profile, patients, appointments and more!</string>
+    <string name="signup_in_desc_doctor">Your doctor account is your portal to all things: your patients, prescriptions, appointments and more!</string>
     <string name="signup_doctor">Create Your doctor Account</string>
     <string name="signin_admin">Administrator Login</string>
-
+    <string name="doctor_signin">Log In To Your Doctor Account</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="datepicker_button">Date</string>
@@ -44,6 +44,7 @@
     <string name="patient_profile_tv4">Age:</string>
     <string name="patient_profile_tv5">Address:</string>
     <string name="update_profile">Update Profile</string>
+    <string name="patients_list">Patients</string>
 
     <string name="a" formatted="false">Firebase User: %s</string>
     <string name="b" formatted="false">Email User: %s %b</string>
