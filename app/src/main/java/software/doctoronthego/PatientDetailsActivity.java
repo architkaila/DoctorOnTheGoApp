@@ -28,7 +28,6 @@ public class PatientDetailsActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(viewPager);
 
-
     }
 
     @Override
@@ -48,6 +47,18 @@ public class PatientDetailsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        signOut();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
     private void signOut() {

@@ -1,9 +1,9 @@
 package software.doctoronthego;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class PatientActivity extends AppCompatActivity {
 
@@ -12,11 +12,17 @@ public class PatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewpager);
         AuthenticateAdaptor adapter = new AuthenticateAdaptor(this, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
+        TabLayout tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

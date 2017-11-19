@@ -1,8 +1,8 @@
 package software.doctoronthego;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,5 +21,11 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         }.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }
