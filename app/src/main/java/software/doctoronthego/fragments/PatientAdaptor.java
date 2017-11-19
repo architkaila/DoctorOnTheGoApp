@@ -28,9 +28,9 @@ public class PatientAdaptor extends FragmentPagerAdapter {
         else if(position == 1) {
             return new PatientBookAppointment();
         } else if (position == 2) {
-            return new PatientBookAppointment();
-        } else {
             return new PatientPrescriptions();
+        } else {
+            return new PatientViewAppointment();
         }
     }
 
