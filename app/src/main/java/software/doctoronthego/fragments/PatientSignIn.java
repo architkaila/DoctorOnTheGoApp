@@ -1,5 +1,6 @@
 package software.doctoronthego.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import software.doctoronthego.PatientDetailsActivity;
 import software.doctoronthego.R;
 
 /**
@@ -28,14 +30,14 @@ import software.doctoronthego.R;
 public class PatientSignIn extends Fragment {
 
     private static final String TAG = "EmailPassword";
+    // [START declare_auth]
+    public static FirebaseAuth mAuth;
     Button signin;
     Button logout;
     private TextView mStatusTextView;
     private TextView mDetailTextView;
     private EditText mEmailField;
     private EditText mPasswordField;
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
     // [END declare_auth]
 
     public PatientSignIn() {
@@ -114,7 +116,7 @@ public class PatientSignIn extends Fragment {
                             mStatusTextView.setText(getString(R.string.b, user.getEmail(), user.isEmailVerified()));
                             mDetailTextView.setText(getString(R.string.a, user.getUid()));
 
-                            //startActivity(new Intent(getActivity(), PatientDetailsActivity.class));
+                            startActivity(new Intent(getActivity(), PatientDetailsActivity.class));
 
                         } else {
                             // If sign in fails, display a message to the user.

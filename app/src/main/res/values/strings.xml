@@ -37,11 +37,13 @@
     <string name="profile">Profile</string>
     <string name="patient_view_appointment">View Appointments</string>
     <string name="patient_book_appointment">Book Appointment</string>
+    <string name="patient_prescription">Prescriptions</string>
     <string name="patient_profile_tv1">First Name:</string>
     <string name="patient_profile_tv2">Last Name:</string>
     <string name="patient_profile_tv3">Email Address:</string>
     <string name="patient_profile_tv4">Age:</string>
     <string name="patient_profile_tv5">Address:</string>
+    <string name="update_profile">Update Profile</string>
 
     <string name="a" formatted="false">Firebase User: %s</string>
     <string name="b" formatted="false">Email User: %s %b</string>
