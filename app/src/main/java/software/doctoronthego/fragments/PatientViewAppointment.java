@@ -3,13 +3,12 @@ package software.doctoronthego.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +18,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+
+import software.doctoronthego.Appointments;
+import software.doctoronthego.AppointmentsAdaptor;
 import software.doctoronthego.R;
 
 import static android.content.ContentValues.TAG;
@@ -32,8 +35,7 @@ public class PatientViewAppointment extends Fragment {
     String userEmail;
     FirebaseUser currentUser;
     DocumentReference db;
-    TextView appointments;
-    StringBuilder data = new StringBuilder();
+    ListView list;
 
     public PatientViewAppointment() {
         // Required empty public constructor
@@ -49,14 +51,9 @@ public class PatientViewAppointment extends Fragment {
 
         currentUser = mAuth.getCurrentUser();
         userEmail = currentUser.getEmail();
-        appointments = v.findViewById(R.id.appointments);
-        db = FirebaseFirestore.getInstance().collection("patientData").document(userEmail);
-        return v;
-    }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+        list = v.findViewById(R.id.list);
+        db = FirebaseFirestore.getInstance().collection("patientData").document(userEmail);
 
         db.collection("Appointments")
                 .get()
@@ -64,18 +61,31 @@ public class PatientViewAppointment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
+                        final ArrayList<Appointments> appointments = new ArrayList<Appointments>();
+                        final AppointmentsAdaptor adptr = new AppointmentsAdaptor(getActivity(), appointments);
+
                         if (task.isSuccessful()) {
-                            data.setLength(0);
                             for (DocumentSnapshot doc : task.getResult()) {
-                                data.append(doc.getString("date")).append("    ").append(doc.getString("time")).append("\n");
-                                Log.d(TAG, doc.getId() + " => " + doc.getData());
+                                Appointments data = doc.toObject(Appointments.class);
+                                appointments.add(new Appointments(data.getDate(), data.getTime()));
+                                adptr.setNotifyOnChange(true);
                             }
-                            appointments.setText(data.toString());
+
+                            list.setAdapter(adptr);
 
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
                 });
+
+        return v;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
+
 }

@@ -24,15 +24,16 @@
         android:background="@color/colorPrimary" />
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Appointments" />
 
-    <TextView
-        android:id="@+id/appointments"
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:layout_height="wrap_content"></ListView>
+
 
 </LinearLayout>

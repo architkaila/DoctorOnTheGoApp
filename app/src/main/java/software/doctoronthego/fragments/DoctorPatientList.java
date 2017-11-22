@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.firebase.firestore.DocumentReference;
 
 import software.doctoronthego.R;
 
@@ -14,6 +17,9 @@ import software.doctoronthego.R;
  */
 public class DoctorPatientList extends Fragment {
 
+    DocumentReference db;
+    TextView patient_list;
+    StringBuilder data = new StringBuilder();
 
     public DoctorPatientList() {
         // Required empty public constructor
@@ -24,7 +30,8 @@ public class DoctorPatientList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doctor_patient_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_doctor_patient_list, container, false);
+        return v;
     }
 
 }
