@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,9 +32,9 @@ public class PatientSignIn extends Fragment {
     // [START declare_auth]
     public static FirebaseAuth mAuth;
     Button signin;
-    Button logout;
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
+    //Button logout;
+    //private TextView mStatusTextView;
+    //private TextView mDetailTextView;
     private EditText mEmailField;
     private EditText mPasswordField;
     // [END declare_auth]
@@ -51,10 +50,10 @@ public class PatientSignIn extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_patient_sign_in, container, false);
         signin = v.findViewById(R.id.patient_sign_in);
-        logout = v.findViewById(R.id.logout);
+        // logout = v.findViewById(R.id.logout);
 
-        mStatusTextView = v.findViewById(R.id.status);
-        mDetailTextView = v.findViewById(R.id.result);
+        //  mStatusTextView = v.findViewById(R.id.status);
+        //  mDetailTextView = v.findViewById(R.id.result);
         mEmailField = v.findViewById(R.id.patient_signin_email);
         mPasswordField = v.findViewById(R.id.patient_signin_password);
         mAuth = FirebaseAuth.getInstance();
@@ -68,11 +67,11 @@ public class PatientSignIn extends Fragment {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
-            mStatusTextView.setText("Signed out");
-            mDetailTextView.setText(null);
+            //    mStatusTextView.setText("Signed out");
+            //  mDetailTextView.setText(null);
         } else {
-            mStatusTextView.setText(getString(R.string.b, currentUser.getEmail(), currentUser.isEmailVerified()));
-            mDetailTextView.setText(getString(R.string.a, currentUser.getUid()));
+            // mStatusTextView.setText(getString(R.string.b, currentUser.getEmail(), currentUser.isEmailVerified()));
+            // mDetailTextView.setText(getString(R.string.a, currentUser.getUid()));
         }
     }
 
@@ -86,12 +85,12 @@ public class PatientSignIn extends Fragment {
             }
         });
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signOut();
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                signOut();
+//            }
+//        });
 
         super.onActivityCreated(savedInstanceState);
     }
@@ -113,8 +112,8 @@ public class PatientSignIn extends Fragment {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            mStatusTextView.setText(getString(R.string.b, user.getEmail(), user.isEmailVerified()));
-                            mDetailTextView.setText(getString(R.string.a, user.getUid()));
+                            //mStatusTextView.setText(getString(R.string.b, user.getEmail(), user.isEmailVerified()));
+                            //mDetailTextView.setText(getString(R.string.a, user.getUid()));
 
                             startActivity(new Intent(getActivity(), PatientDetailsActivity.class));
 
@@ -123,14 +122,14 @@ public class PatientSignIn extends Fragment {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(getActivity(), "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            mStatusTextView.setText("Signed out");
-                            mDetailTextView.setText(null);
+                            //mStatusTextView.setText("Signed out");
+                            //mDetailTextView.setText(null);
 
                         }
 
                         // [START_EXCLUDE]
                         if (!task.isSuccessful()) {
-                            mStatusTextView.setText("Authentication Failed");
+                            //mStatusTextView.setText("Authentication Failed");
                         }
                         //hideProgressDialog();
                         // [END_EXCLUDE]
@@ -141,8 +140,8 @@ public class PatientSignIn extends Fragment {
 
     private void signOut() {
         mAuth.signOut();
-        mStatusTextView.setText("Signed out");
-        mDetailTextView.setText(null);
+        //mStatusTextView.setText("Signed out");
+        //mDetailTextView.setText(null);
         //updateUI(null);
     }
 

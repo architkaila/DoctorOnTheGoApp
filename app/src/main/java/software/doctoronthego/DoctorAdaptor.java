@@ -33,9 +33,9 @@ public class DoctorAdaptor extends FragmentPagerAdapter {
 
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return mContext.getString(R.string.patients_list);
-        } else {
             return mContext.getString(R.string.patient_view_appointment);
+        } else {
+            return mContext.getString(R.string.patients_list);
         }
     }
 
