@@ -67,7 +67,7 @@ public class PatientViewAppointment extends Fragment {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot doc : task.getResult()) {
                                 Appointments data = doc.toObject(Appointments.class);
-                                appointments.add(new Appointments(data.getDate(), data.getTime()));
+                                appointments.add(data);
                                 adptr.setNotifyOnChange(true);
                             }
 
@@ -87,5 +87,4 @@ public class PatientViewAppointment extends Fragment {
         super.onStart();
 
     }
-
 }

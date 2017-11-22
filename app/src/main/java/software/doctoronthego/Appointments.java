@@ -9,15 +9,9 @@ public class Appointments {
     private String Date;
     private String Time;
 
-    public Appointments(String date, String time) {
-        Date = date;
-        Time = time;
-    }
-
     public Appointments() {
 
     }
-
 
     public String getDate() {
         return Date;
