@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     tools:context="software.doctoronthego.fragments.DoctorPatientList">
 
-    <TextView
-        android:id="@+id/patient_list"
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="patient list" />
+        android:layout_height="wrap_content"></ListView>
+
 
 </FrameLayout>
