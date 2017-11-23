@@ -19,6 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import software.doctoronthego.Appointments;
 import software.doctoronthego.AppointmentsAdaptor;
@@ -61,7 +63,7 @@ public class PatientViewAppointment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                        final ArrayList<Appointments> appointments = new ArrayList<Appointments>();
+                        final ArrayList<Appointments> appointments = new ArrayList<>();
                         final AppointmentsAdaptor adptr = new AppointmentsAdaptor(getActivity(), appointments);
 
                         if (task.isSuccessful()) {
@@ -70,7 +72,7 @@ public class PatientViewAppointment extends Fragment {
                                 appointments.add(data);
                                 adptr.setNotifyOnChange(true);
                             }
-
+                            Collections.sort(appointments, new dateSort());
                             list.setAdapter(adptr);
 
                         } else {
@@ -82,9 +84,16 @@ public class PatientViewAppointment extends Fragment {
         return v;
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
 
+    }
+
+    public class dateSort implements Comparator<Appointments> {
+        public int compare(Appointments one, Appointments two) {
+            return (two.getDate().compareTo(one.getDate()));
+        }
     }
 }

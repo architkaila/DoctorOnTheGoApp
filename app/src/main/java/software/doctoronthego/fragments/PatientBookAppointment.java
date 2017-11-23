@@ -156,19 +156,36 @@ public class PatientBookAppointment extends Fragment {
                 DatePickerDialog dp = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
-                        String date = year + "-" + (month + 1) + "-" + dayOfMonth;
-                        if (year < yy) {
-                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
-                            datepicker.setText("");
-                        } else if ((month + 1) < mm) {
-                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
-                            datepicker.setText("");
-                        } else if (dayOfMonth < dd) {
-                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
-                            datepicker.setText("");
+                        String dateStr;
+                        String monthStr;
+
+                        if (month + 1 < 10) {
+                            monthStr = "0" + (month + 1);
                         } else {
-                            datepicker.setText(date);
+                            monthStr = "" + (month + 1);
                         }
+
+                        if (dayOfMonth < 10) {
+                            dateStr = "0" + dayOfMonth;
+                        } else {
+                            dateStr = "" + dayOfMonth;
+                        }
+
+
+                        String date = year + "-" + monthStr + "-" + dateStr;
+//                        if (year < yy) {
+//                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
+//                            datepicker.setText("");
+//                        } else if ((month + 1) < mm) {
+//                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
+//                            datepicker.setText("");
+//                        } else if (dayOfMonth < dd) {
+//                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
+//                            datepicker.setText("");
+//                        } else {
+//                            datepicker.setText(date);
+//                        }
+                        datepicker.setText(date);
 
                     }
                 }, yy, mm, dd);
