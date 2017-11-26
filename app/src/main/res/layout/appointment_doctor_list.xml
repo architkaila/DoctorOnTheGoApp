@@ -4,7 +4,7 @@
     android:layout_height="88dp">
 
     <!--<ImageView-->
-    <!--android:id="@+id/image"-->
+    <!--android:id="@+id/patientImage"-->
     <!--android:layout_width="88dp"-->
     <!--android:layout_height="88dp" />-->
 

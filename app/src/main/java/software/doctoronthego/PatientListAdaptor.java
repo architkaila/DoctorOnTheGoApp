@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,8 +34,12 @@ public class PatientListAdaptor extends ArrayAdapter<PatientList> {
         }
 
         TextView name = listItemView.findViewById(R.id.name);
+        ImageView patientImage = listItemView.findViewById(R.id.patientImage);
 
         name.setText(data.getName());
+        //patientImage.setImageURI(Uri.parse(data.getmPhotoUri()));
+        patientImage.setImageResource(R.drawable.unnamed);
+        // Glide.with(getContext()).load(Uri.parse(data.getmPhotoUri())).into(patientImage);
 
         return listItemView;
     }

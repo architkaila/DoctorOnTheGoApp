@@ -35,9 +35,6 @@ import static software.doctoronthego.fragments.PatientSignIn.mAuth;
  */
 public class PatientProfile extends Fragment {
 
-
-    public static final int MAX_WIDTH = 500;
-    public static final int MAX_HEIGHT = 500;
     String userEmail;
     FirebaseUser currentUser;
     Button updateProfile;
@@ -105,17 +102,8 @@ public class PatientProfile extends Fragment {
             public void onSuccess(Uri uri) {
 
                 Glide.with(getContext()).load(uri).into(patientProfile);
-
                 //patientProfile.setImageURI(uri);
-
 //                Picasso.with(getActivity()).load(uri).fit().centerCrop()
-//                        .into(patientProfile);
-
-//                Picasso.with(getActivity())
-//                        .load(uri)
-//                        .resize(MAX_WIDTH,MAX_HEIGHT)
-//                        .onlyScaleDown()
-//                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
 //                        .into(patientProfile);
                 mProgressDialogue.dismiss();
             }
