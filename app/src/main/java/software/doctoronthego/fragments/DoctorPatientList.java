@@ -1,7 +1,6 @@
 package software.doctoronthego.fragments;
 
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -61,7 +59,6 @@ public class DoctorPatientList extends Fragment {
 
         list = v.findViewById(R.id.list);
         db = FirebaseFirestore.getInstance().collection("patientData");
-        final String[] photoUri = {""};
         db.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -72,17 +69,7 @@ public class DoctorPatientList extends Fragment {
                 if (task.isSuccessful()) {
                     for (final DocumentSnapshot doc : task.getResult()) {
 
-                        mStorage.child("Photos").child(doc.getId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                photoUri[0] = uri.toString();
-                                Log.e("ChittuChutiya", photoUri[0]);
-                                //Toast.makeText(getActivity(),data.getmPhotoUri().toString(), Toast.LENGTH_SHORT).show();
-                            }
-
-                        });
-                        Log.e("ChittuChutiya1", photoUri[0]);
-                        PatientList data = new PatientList(doc.getString("first_name") + " " + doc.getString("last_name"), photoUri[0]);
+                        PatientList data = new PatientList(doc.getString("first_name") + " " + doc.getString("last_name"), doc.getString("photoURI"));
                         patients.add(data);
 
                         adptr.setNotifyOnChange(true);

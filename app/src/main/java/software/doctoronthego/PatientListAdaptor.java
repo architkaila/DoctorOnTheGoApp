@@ -1,6 +1,7 @@
 package software.doctoronthego;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -38,8 +41,19 @@ public class PatientListAdaptor extends ArrayAdapter<PatientList> {
 
         name.setText(data.getName());
         //patientImage.setImageURI(Uri.parse(data.getmPhotoUri()));
-        patientImage.setImageResource(R.drawable.unnamed);
-        // Glide.with(getContext()).load(Uri.parse(data.getmPhotoUri())).into(patientImage);
+        //patientImage.setImageResource(R.drawable.unnamed);
+        //Log.e("patient uri", data.getmPhotoUri());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Glide.get(getContext()).clearDiskCache();
+            }
+        }).start();
+
+        Glide.with(getContext())
+                .load(Uri.parse(data.getmPhotoUri()))
+                .into(patientImage);
 
         return listItemView;
     }

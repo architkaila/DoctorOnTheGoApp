@@ -38,6 +38,7 @@ public class PatientProfileUpdate extends AppCompatActivity {
     FirebaseUser currentUser;
     ProgressDialog mProgressDialogue;
     StorageReference mStorage;
+    String tempUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +70,20 @@ public class PatientProfileUpdate extends AppCompatActivity {
             }
         });
 
+        mStorage.child("Photos").child(email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                tempUri = uri.toString();
+                mProgressDialogue.dismiss();
+            }
+        });
+
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Map<String, Object> docData = new HashMap<>();
+                docData.put("photoURI", tempUri);
                 docData.put("email", email);
                 docData.put("first_name", fname.getText().toString());
                 docData.put("last_name", lname.getText().toString());
@@ -131,7 +141,6 @@ public class PatientProfileUpdate extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
 
     }
 }

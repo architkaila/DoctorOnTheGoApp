@@ -25,6 +25,7 @@ public class PatientList {
         Name = name;
     }
 
+
     public String getmPhotoUri() {
         return mPhotoUri;
     }
