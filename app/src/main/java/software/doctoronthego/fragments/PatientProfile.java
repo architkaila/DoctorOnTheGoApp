@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -23,7 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
 import software.doctoronthego.PatientProfileUpdate;
 import software.doctoronthego.R;
@@ -103,10 +103,13 @@ public class PatientProfile extends Fragment {
         mStorage.child("Photos").child(userEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+
+                Glide.with(getContext()).load(uri).into(patientProfile);
+
                 //patientProfile.setImageURI(uri);
 
-                Picasso.with(getActivity()).load(uri).fit().centerCrop()
-                        .into(patientProfile);
+//                Picasso.with(getActivity()).load(uri).fit().centerCrop()
+//                        .into(patientProfile);
 
 //                Picasso.with(getActivity())
 //                        .load(uri)
