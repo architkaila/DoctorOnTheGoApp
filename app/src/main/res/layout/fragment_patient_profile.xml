@@ -8,9 +8,9 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/im"
+        android:id="@+id/patientPhoto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="240dp"
         android:layout_margin="16dp"
         android:src="@drawable/unnamed" />
 
