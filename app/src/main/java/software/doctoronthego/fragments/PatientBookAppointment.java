@@ -98,6 +98,7 @@ public class PatientBookAppointment extends Fragment {
                 Map<String, Object> AppointmentData = new HashMap<>();
                 AppointmentData.put("date", datepicker.getText().toString());
                 AppointmentData.put("time", timepicker.getText().toString());
+                AppointmentData.put("prescription", "");
 
                 db.collection("Appointments").document().set(AppointmentData).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

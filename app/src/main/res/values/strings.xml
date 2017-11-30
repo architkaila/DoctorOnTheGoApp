@@ -49,4 +49,7 @@
     <string name="a" formatted="false">Firebase User: %s</string>
     <string name="b" formatted="false">Email User: %s %b</string>
 
+    <string name="patient_profile">Patient Profile</string>
+    <string name="patient_appointments">Appointments</string>
+
 </resources>

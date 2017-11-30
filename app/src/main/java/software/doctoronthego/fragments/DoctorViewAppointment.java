@@ -94,6 +94,7 @@ public class DoctorViewAppointment extends Fragment {
             }
         });
 
+
         return v;
     }
 

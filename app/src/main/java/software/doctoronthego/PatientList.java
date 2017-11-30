@@ -8,10 +8,13 @@ public class PatientList {
 
     private String Name;
     private String mPhotoUri;
+    private String mEmail;
+    private String mPrescription;
 
-    public PatientList(String name, String photoUri) {
+    public PatientList(String name, String photoUri, String email) {
         Name = name;
         mPhotoUri = photoUri;
+        mEmail = email;
     }
 
     public PatientList() {
@@ -32,5 +35,21 @@ public class PatientList {
 
     public void setmPhotoUri(String mPhotoUri) {
         this.mPhotoUri = mPhotoUri;
+    }
+
+    public String getmEmail() {
+        return mEmail;
+    }
+
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
+    }
+
+    public String getmPrescription() {
+        return mPrescription;
+    }
+
+    public void setmPrescription(String mPrescription) {
+        this.mPrescription = mPrescription;
     }
 }
