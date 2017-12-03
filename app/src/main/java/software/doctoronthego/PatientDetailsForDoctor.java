@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class PatientDetailsForDoctor extends AppCompatActivity {
 
-    String s;
+    public static String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

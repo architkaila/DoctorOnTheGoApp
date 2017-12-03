@@ -27,9 +27,11 @@ public class PatientAdaptor extends FragmentPagerAdapter {
         }
         else if(position == 1) {
             return new PatientBookAppointment();
-        } else if (position == 2) {
-            return new PatientPrescriptions();
-        } else {
+        }
+//        else if (position == 2) {
+//            return new PatientPrescriptions();
+//        }
+        else {
             return new PatientViewAppointment();
         }
     }
@@ -40,15 +42,17 @@ public class PatientAdaptor extends FragmentPagerAdapter {
         }
         else if(position == 1){
             return mContext.getString(R.string.patient_book_appointment);
-        } else if (position == 2) {
-            return mContext.getString(R.string.patient_prescription);
-        } else {
+        }
+//        else if (position == 2) {
+//            return mContext.getString(R.string.patient_prescription);
+//        }
+        else {
             return mContext.getString(R.string.patient_view_appointment);
         }
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 }

@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -66,7 +65,7 @@ public class DoctorViewAppointment extends Fragment {
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot doc : task.getResult()) {
 
-                        Toast.makeText(getActivity(), doc.getId(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), doc.getId(), Toast.LENGTH_SHORT).show();
                         String email = doc.getId();
                         final String name = doc.getString("first_name");
 
