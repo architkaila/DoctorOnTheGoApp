@@ -38,7 +38,7 @@ public class DoctorActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.logout) {
             //add part to logout from database too
             signOut();
-            startActivity(new Intent(DoctorActivity.this, DoctorLogin.class));
+            startActivity(new Intent(DoctorActivity.this, PatientActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

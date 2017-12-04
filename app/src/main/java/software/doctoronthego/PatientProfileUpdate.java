@@ -70,13 +70,13 @@ public class PatientProfileUpdate extends AppCompatActivity {
             }
         });
 
-        mStorage.child("Photos").child(email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                tempUri = uri.toString();
-                mProgressDialogue.dismiss();
-            }
-        });
+//        mStorage.child("Photos").child(email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//            @Override
+//            public void onSuccess(Uri uri) {
+//                tempUri = uri.toString();
+//                mProgressDialogue.dismiss();
+//            }
+//        });
 
 
         update.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +127,13 @@ public class PatientProfileUpdate extends AppCompatActivity {
 
                     image.setImageURI(uri);
                     mProgressDialogue.dismiss();
+                    mStorage.child("Photos").child(email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            tempUri = uri.toString();
+                            mProgressDialogue.dismiss();
+                        }
+                    });
                     Toast.makeText(PatientProfileUpdate.this, "Photo Upload Successful !", Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {

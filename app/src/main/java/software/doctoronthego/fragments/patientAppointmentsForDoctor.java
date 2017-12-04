@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -77,7 +76,7 @@ public class patientAppointmentsForDoctor extends Fragment {
                                 Appointments data = new Appointments(doc.get("date").toString(), doc.get("time").toString(), doc.get("prescription").toString(), doc.getId());
                                 appointments.add(data);
                                 adptr.setNotifyOnChange(true);
-                                Toast.makeText(getActivity(), data.getPrescription(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getActivity(), data.getPrescription(), Toast.LENGTH_SHORT).show();
                             }
                             Collections.sort(appointments, new dateSort());
                             list.setAdapter(adptr);

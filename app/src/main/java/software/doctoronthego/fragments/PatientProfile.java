@@ -77,13 +77,16 @@ public class PatientProfile extends Fragment {
     public void onStart() {
         super.onStart();
 
-        mProgressDialogue.setMessage("Loading...");
-        mProgressDialogue.show();
+
 
         db.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException e) {
                 if (documentSnapshot.exists()) {
+
+                    mProgressDialogue.setMessage("Loading...");
+                    mProgressDialogue.show();
+                    
                     String mFirstName = (String) documentSnapshot.get("first_name");
                     String mLastName = (String) documentSnapshot.get("last_name");
                     String mAge = (String) documentSnapshot.get("age");
@@ -93,21 +96,23 @@ public class PatientProfile extends Fragment {
                     age.setText(mAge);
                     email.setText(userEmail);
                     address.setText(mAddress);
+
+                    mStorage.child("Photos").child(userEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            Glide.with(getContext()).load(uri).into(patientProfile);
+                            //patientProfile.setImageURI(uri);
+//                Picasso.with(getActivity()).load(uri).fit().centerCrop()
+//                        .into(patientProfile);
+                            mProgressDialogue.dismiss();
+                        }
+                    });
                 }
             }
         });
 
-        mStorage.child("Photos").child(userEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
 
-                Glide.with(getContext()).load(uri).into(patientProfile);
-                //patientProfile.setImageURI(uri);
-//                Picasso.with(getActivity()).load(uri).fit().centerCrop()
-//                        .into(patientProfile);
-                mProgressDialogue.dismiss();
-            }
-        });
     }
 
     @Override

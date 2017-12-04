@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,8 +30,8 @@ public class PatientSignUp extends Fragment {
     private static final String TAG = "abcd";
     Button signup;
     private FirebaseAuth mAuth;
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
+    // private TextView mStatusTextView;
+    //  private TextView mDetailTextView;
     private EditText mEmailField;
     private EditText mPasswordField;
 
@@ -47,8 +46,8 @@ public class PatientSignUp extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_patient_sign_up, container, false);
 
-        mStatusTextView = v.findViewById(R.id.status);
-        mDetailTextView = v.findViewById(R.id.result);
+        //  mStatusTextView = v.findViewById(R.id.status);
+        //  mDetailTextView = v.findViewById(R.id.result);
         mEmailField = v.findViewById(R.id.patient_reg_email);
         mPasswordField = v.findViewById(R.id.patient_reg_password);
         signup = v.findViewById(R.id.patient_reg_sign_up);
@@ -63,11 +62,11 @@ public class PatientSignUp extends Fragment {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
-            mStatusTextView.setText("Signed out");
-            mDetailTextView.setText(null);
+            //    mStatusTextView.setText("Signed out");
+            //    mDetailTextView.setText(null);
         } else {
-            mStatusTextView.setText(getString(R.string.b, currentUser.getEmail(), currentUser.isEmailVerified()));
-            mDetailTextView.setText(getString(R.string.a, currentUser.getUid()));
+            //    mStatusTextView.setText(getString(R.string.b, currentUser.getEmail(), currentUser.isEmailVerified()));
+            //    mDetailTextView.setText(getString(R.string.a, currentUser.getUid()));
         }
     }
 
@@ -99,15 +98,16 @@ public class PatientSignUp extends Fragment {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            mStatusTextView.setText(getString(R.string.b, user.getEmail(), user.isEmailVerified()));
-                            mDetailTextView.setText(getString(R.string.a, user.getUid()));
+                            Toast.makeText(getActivity(), "Signup Successful !", Toast.LENGTH_LONG).show();
+                            //     mStatusTextView.setText(getString(R.string.b, user.getEmail(), user.isEmailVerified()));
+                            //     mDetailTextView.setText(getString(R.string.a, user.getUid()));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(getActivity(), "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            mStatusTextView.setText("Signed out");
-                            mDetailTextView.setText(null);
+                            //    mStatusTextView.setText("Signed out");
+                            //    mDetailTextView.setText(null);
                         }
 
                     }

@@ -43,7 +43,12 @@ public class DoctorLogin extends AppCompatActivity {
         signinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
+                if (mEmailField.getText().toString().equalsIgnoreCase("sandeep.kaila@gmail.com")) {
+                    signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
+                } else {
+                    mEmailField.setError("Invalid Doctor Id!");
+                }
+
             }
         });
     }

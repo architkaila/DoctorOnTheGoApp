@@ -160,6 +160,7 @@ public class PatientBookAppointment extends Fragment {
                         String dateStr;
                         String monthStr;
 
+
                         if (month + 1 < 10) {
                             monthStr = "0" + (month + 1);
                         } else {
@@ -172,8 +173,18 @@ public class PatientBookAppointment extends Fragment {
                             dateStr = "" + dayOfMonth;
                         }
 
-
                         String date = year + "-" + monthStr + "-" + dateStr;
+
+                        if (month < 11) {
+                            datepicker.setText("");
+                            datepicker.setError("Choose a valid Date !");
+                        } else if (dayOfMonth < dd) {
+                            datepicker.setError("Choose valid Date !");
+                        } else {
+                            datepicker.setText(date);
+                        }
+
+
 //                        if (year < yy) {
 //                            Toast.makeText(getActivity(), "Enter Correct Date!", Toast.LENGTH_SHORT).show();
 //                            datepicker.setText("");
@@ -186,7 +197,7 @@ public class PatientBookAppointment extends Fragment {
 //                        } else {
 //                            datepicker.setText(date);
 //                        }
-                        datepicker.setText(date);
+
 
                     }
                 }, yy, mm, dd);
